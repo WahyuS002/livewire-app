@@ -9,6 +9,7 @@
                 <livewire:post.single :key="$post->id" :post="$post">
 
             @endforeach
+            {{ $posts->links() }}
         </div>
     </div>
 </div>
