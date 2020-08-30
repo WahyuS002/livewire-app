@@ -28,6 +28,7 @@ class Add extends Component
         // Saat data selesai dimasukkan maka body = null
         $this->body = '';
 
+        session()->flash('message', 'Your post has been added');
         $this->emit('postAdded');
     }
 

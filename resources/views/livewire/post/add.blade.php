@@ -1,4 +1,9 @@
 <div>
+    @if (session('message'))
+        <alert class="alert-success">
+            {{ session('message') }}
+        </alert>
+    @endif
     <div class="card">
         <div class="card-header">
             Update your post.
