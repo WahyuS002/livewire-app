@@ -13,6 +13,12 @@ class Index extends Component
 
     public $perPages = 5;
 
+    protected $listeners = ['postAdded'];
+
+    public function postAdded()
+    {
+    }
+
     public function loadMore()
     {
         $this->perPages += 5;

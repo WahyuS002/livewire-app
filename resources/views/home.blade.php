@@ -5,7 +5,8 @@
     <div class="row">
         <div class="col-md-8">                       
                 
-                @livewire('post.index')
+            <livewire:post.add>
+            <livewire:post.index>    
             
         </div>
     </div>
