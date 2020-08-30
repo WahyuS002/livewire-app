@@ -8,16 +8,27 @@ class Add extends Component
 {
     public $body;
 
+    public function updated($fields)
+    {
+        $this->validateOnly($fields, [
+            'body' => 'min:3|max:255'
+        ]);
+    }
+
     public function addPost()
     {
-        $post = auth()->user()->post()->create([
+        $this->validate([
+            'body' => 'required|min:3|max:255'
+        ]);
+
+        auth()->user()->post()->create([
             'body' => $this->body
         ]);
 
         // Saat data selesai dimasukkan maka body = null
         $this->body = '';
 
-        $this->emit('postAdded', $post->id);
+        $this->emit('postAdded');
     }
 
     public function render()

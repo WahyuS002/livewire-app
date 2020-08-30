@@ -26,7 +26,7 @@ class Index extends Component
 
     public function render()
     {
-        $posts = Post::latest()->paginate($this->perPages);
+        $posts = Post::with('user')->latest()->paginate($this->perPages);
 
         return view('livewire.post.index', compact('posts'));
     }
