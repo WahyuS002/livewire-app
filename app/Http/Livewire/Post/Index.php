@@ -11,9 +11,16 @@ class Index extends Component
 {
     use WithPagination;
 
+    public $perPages = 5;
+
+    public function loadMore()
+    {
+        $this->perPages += 5;
+    }
+
     public function render()
     {
-        $posts = Post::latest()->paginate(5);
+        $posts = Post::latest()->paginate($this->perPages);
 
         return view('livewire.post.index', compact('posts'));
     }

@@ -9,7 +9,11 @@
                 <livewire:post.single :key="$post->id" :post="$post">
 
             @endforeach
-            {{ $posts->links() }}
+            {{-- {{ $posts->links() }} --}}
+
+            @if ($posts->hasMorePages())
+                <button class="btn btn-primary" wire:click="loadMore">Load More</button>                
+            @endif
         </div>
     </div>
 </div>
